@@ -82,11 +82,9 @@
       */
       function loop_and_display() {
         var output_html;
-        var count = 0;
         output_html="<p>The script is starting...</p>";
-        while (count<10) {
+        for (count = 0; count<10; count++) {
           output_html= output_html + "Times this loop has run: "+ count +"<br />";
-          count++;
         }
         output_html += "<p>The script is done.</p>";
         $("#output_area").html(output_html);
