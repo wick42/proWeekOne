@@ -21,6 +21,11 @@
       .selected {
         background-color: gold;
       }
+
+      dd {
+        color: tomato;
+      }
+
       input[type="button"]  {
         border: 1px solid grey;
         width: 100px;
@@ -58,10 +63,16 @@
         $('input[value="Run Script"]').click( function(){
           console.log('Caught a "Run Script" click event.');
           $("#output_area").addClass( 'selected');
-          alert("The looping function should go here.");
+          // alert("The looping function should go here.");
+          loop_and_display();
         });
 
         // attach an event listener to the Clear button here
+        $('input[value="Clear"]').click( function(){
+          console.log('Caught a "Clear" click event.');
+          $("#output_area").removeClass( 'selected');
+          clear_button_text()
+        }); 
 
       }); // end of $(document).ready
 
@@ -80,6 +91,13 @@
         output_html += "<p>The script is done.</p>";
         $("#output_area").html(output_html);
       }
+
+      function clear_button_text() {
+        var output_html;
+        output_html="<p>Click the Run Script button.</p>";
+        $("#output_area").html(output_html);
+      }
+
     </script>
   </head>
   <body>
@@ -88,7 +106,7 @@
     <h2>Quiz</h2>
     <dl>
       <dt>What is an 'event listener'?</dt>
-      <dd>(put your answer here)</dd>
+      <dd>Per <em>Duckett</em>, event listeners are a more recent approach to handling events. They can deal with more than one function at a time.</dd>
       <dt>How do you attach an event listener that responds to a 'click' event to an element using jQuery?</dt>
       <dd>(put your answer here)</dd>
       <dt>What is the ID of the place where the output of the loop function should go?</dt>
